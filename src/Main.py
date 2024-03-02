@@ -1,7 +1,4 @@
-import pygame
-import sys
-import random
-import tkinter as tk
+import pygame, sys, random, tkinter as tk
 from tkinter import messagebox
 import os
 from Player import Player
