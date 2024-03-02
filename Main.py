@@ -10,7 +10,7 @@ FPS = 60
 
 # Precomputed Constants
 PLAYER_WIDTH = 100
-PLAYER_HEIGHT = 100
+PLAYER_HEIGHT = 190
 JUMP_COUNT_MAX = 11
 RUNNING_VELOCITY = 5
 
@@ -20,6 +20,10 @@ def initialize_game():
     WIDTH, HEIGHT = 800, 600
     screen = pygame.display.set_mode((WIDTH, HEIGHT))
     pygame.display.set_caption("Fluffy: The Game | FPS: 0")  # Initial caption with FPS placeholder
+    icon_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data", "icon.ico")
+    if os.path.exists(icon_path):  # Check if icon file exists
+        icon = pygame.image.load(icon_path)
+        pygame.display.set_icon(icon)
     return screen, WIDTH, HEIGHT
 
 # Function to load game assets
@@ -42,7 +46,7 @@ def load_assets():
         raise FileNotFoundError("The sound file 'boing.ogg' is missing.")
 
     font = pygame.font.Font(None, 100)  # Font for "FLUFFY!" text
-    small_font = pygame.font.Font(None, 40)  # Font for "Total Jumps" text
+    small_font = pygame.font.Font(None, 30)  # Font for "Total Jumps" text
     return player_img, jump_sound, font, small_font
 
 def show_error_message(title, message):
