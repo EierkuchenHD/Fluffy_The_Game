@@ -123,7 +123,7 @@ class Main:
         while running:
             running = Main.handle_events(options)
             keys = pygame.key.get_pressed()
-            player.move(keys, RUNNING_VELOCITY, WIDTH)
+            player.move(keys, WIDTH)
             player.y, is_jumping, text, jump_count, total_jumps = Main.handle_jumping(player.y, is_jumping, keys, sfx, text, font, jump_count, total_jumps)
             total_jumps_text = small_font.render(f"Total Jumps: {total_jumps}", True, (255, 255, 255))
             Main.draw_screen(screen, text, text_rect, player, total_jumps_text, options)
